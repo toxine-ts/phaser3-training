@@ -9,6 +9,7 @@ import Phaser from "../lib/phaser.js";
 import { SCENE_KEYS } from "./scene-keys.js";
 
 export class BattleScene extends Phaser.Scene {
+  /** @type {BattleMenu} */
   #battleMenu;
   constructor() {
     super({
@@ -35,7 +36,7 @@ export class BattleScene extends Phaser.Scene {
       {
         color: "#7E3d3f",
         fontSize: "32px",
-      },
+      }
     );
     this.add.container(556, 318, [
       this.add
@@ -67,7 +68,7 @@ export class BattleScene extends Phaser.Scene {
       {
         color: "#7E3d3f",
         fontSize: "32px",
-      },
+      }
     );
     this.add.container(0, 0, [
       this.add
@@ -106,7 +107,7 @@ export class BattleScene extends Phaser.Scene {
       .image(
         middleCap.x + middleCap.displayWidth,
         y,
-        HEALTH_BAR_ASSET_KEYS.RIGHT_CAP,
+        HEALTH_BAR_ASSET_KEYS.RIGHT_CAP
       )
       .setOrigin(0, 0.5)
       .setScale(1, scalY);

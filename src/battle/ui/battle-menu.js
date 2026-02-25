@@ -27,12 +27,18 @@ const battleUiStyle = {
 };
 
 export class BattleMenu {
+  /** @type {Phaser.Scene} */
   #scene;
+  /** @type {Phaser.GameObjects.Container} */
   #mainBattleMenuPhaserContainerGameObject;
+  /** @type {Phaser.GameObjects.Container} */
   #moveSelectionPhaserContainerGameObject;
+  /** @type {Phaser.GameObjects.Text} */
   #battleTextGameObjectLine1;
+  /** @type {Phaser.GameObjects.Text} */
   #battleTextGameObjectLine2;
 
+  /** @param {Phaser.Scene} scene */
   constructor(scene) {
     this.#scene = scene;
     this.#createMainInfosPane();
@@ -63,13 +69,13 @@ export class BattleMenu {
       20,
       468,
       "What should",
-      battleUiStyle,
+      battleUiStyle
     );
     this.#battleTextGameObjectLine2 = this.#scene.add.text(
       20,
       512,
       `${MONSTER_ASSET_KEYS.IGUANIGNITE} do next ?`,
-      battleUiStyle,
+      battleUiStyle
     );
     this.#mainBattleMenuPhaserContainerGameObject = this.#scene.add.container(
       520,
@@ -77,7 +83,7 @@ export class BattleMenu {
       [
         this.#createSubInfosPanel(),
         ...this.#renderBattlePanelText(BATTLE_MENU_OPTIONS),
-      ],
+      ]
     );
     this.hideMainBattleMenu();
   }
@@ -86,7 +92,7 @@ export class BattleMenu {
     this.#moveSelectionPhaserContainerGameObject = this.#scene.add.container(
       0,
       448,
-      [...this.#renderBattlePanelText(ATTACK_MENU_OPTIONS)],
+      [...this.#renderBattlePanelText(ATTACK_MENU_OPTIONS)]
     );
     this.hideMonsterAttackSubMenu();
   }
@@ -101,7 +107,7 @@ export class BattleMenu {
         this.#scene.scale.width - padding * 2,
         rectangleHeight,
         0xede4f3,
-        1,
+        1
       )
       .setOrigin(0)
       .setStrokeStyle(8, 0xe4434a, 1);
@@ -122,7 +128,7 @@ export class BattleMenu {
         option.x,
         option.y,
         option.action,
-        battleUiStyle,
+        battleUiStyle
       );
     });
   }
